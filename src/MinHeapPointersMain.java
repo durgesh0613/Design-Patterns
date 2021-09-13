@@ -1,12 +1,14 @@
 import node.Node;
 import operations.Insertion;
 import operations.PrintHeap;
+import operations.Traversal;
 
 public class MinHeapPointersMain {
     private static Node root;
 
     public static void main(String[] args) {
         Insertion insertion = new Insertion();
+        Traversal traversal = new Traversal();
 
         //Constructing Dummy Min Heap as per the Prompt for testing
         root = new Node(45);
@@ -34,5 +36,7 @@ public class MinHeapPointersMain {
 
         root = insertion.insert(root, new Node(50));
         new PrintHeap().postOrderHeapTraversal(root);
+        System.out.println("\nPrinting odd values in pre-order traversal.");
+        traversal.preOrderHeapTraversalWithOddValues(root);
     }
 }
