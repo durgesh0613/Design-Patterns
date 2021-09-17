@@ -10,12 +10,18 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static test.TestConstants.emptyTreeInsertionTestResult;
 import static test.TestConstants.preOrderAfterInsertionTestResult;
 
+/**
+ * Test class for TreeManipulation
+ */
 public class TreeManipulationTest {
     TreeNode root;
     TreeNode newNode;
     TreeTraversal treeTraversal;
     TreeManipulation treeManipulation;
 
+    /**
+     * Re-initializes root of the tree and initializes the necessary objects.
+     */
     @BeforeEach
     void setUp(){
         root = TestUtility.createDummyTree();
