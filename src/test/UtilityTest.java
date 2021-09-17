@@ -11,6 +11,9 @@ import static main.controller.utility.Constants.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static test.TestConstants.*;
 
+/**
+ * Test class for utility methods used in the project.
+ */
 public class UtilityTest {
     TreeNode root;
 

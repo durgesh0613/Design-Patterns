@@ -10,6 +10,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static test.TestConstants.postOrderTestResult;
 import static test.TestConstants.preOrderTestResult;
 
+/**
+ * Test class for TreeTraversal and its methods.
+ */
 public class TreeTraversalTest {
 
     private TreeNode root;

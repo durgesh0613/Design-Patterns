@@ -6,6 +6,9 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * Test class for TreeNode POJO
+ */
 public class TreeNodeTest {
 
     TreeNode root;

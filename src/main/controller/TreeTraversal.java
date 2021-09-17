@@ -11,18 +11,34 @@ public class TreeTraversal {
         resultTree = new ArrayList<Integer>();
     }
 
+    /**
+     * Getter for resultTree
+     * @return
+     */
     public ArrayList<Integer> getResultTree() {
         return resultTree;
     }
 
+    /**
+     * Setter for resultTree
+     * @param resultTree
+     */
     public void setResultTree(ArrayList<Integer> resultTree) {
         this.resultTree = resultTree;
     }
 
+    /**
+     * clearResult() - Used to reset the resultTree ArrayList
+     */
     public void clearResult(){
         resultTree.clear();
     }
 
+    /**
+     * It returns the list of values in post order for the tree.
+     * @param root
+     * @return
+     */
     public ArrayList<Integer> postOrderHeapTraversal(TreeNode root) {
         if (root == null)
             return null;
@@ -33,6 +49,11 @@ public class TreeTraversal {
         return resultTree;
     }
 
+    /**
+     * It returns the list of values in pre order for the tree.
+     * @param root
+     * @return
+     */
     public ArrayList<Integer> preOrderHeapTraversal(TreeNode root) {
         if (root == null)
             return null;

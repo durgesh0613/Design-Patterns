@@ -4,6 +4,7 @@ import main.controller.utility.Utility;
 import main.model.TreeNode;
 import main.controller.TreeManipulation;
 import main.controller.TreeTraversal;
+import test.TestUtility;
 
 import java.util.ArrayList;
 
@@ -18,7 +19,7 @@ public class MinHeapTree {
         TreeTraversal traversal = new TreeTraversal();
 
         //Create a dummy tree with certain values
-        //Utility.createTree();
+        //root = TestUtility.createDummyTree();
 
         //Insert 50 as a value and maintain min-heap structure
         root = treeManipulation.insert(root, new TreeNode(50));

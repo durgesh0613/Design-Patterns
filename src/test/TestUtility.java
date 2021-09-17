@@ -2,7 +2,14 @@ package test;
 
 import main.model.TreeNode;
 
+/**
+ * Class to hold utility functions to be utilized in writing test-cases.
+ */
 public class TestUtility {
+    /**
+     * Method to create a Tree with dummy values for test-cases.
+     * @return
+     */
     public static TreeNode createDummyTree(){
         //Constructing Dummy Min Heap as per the Prompt for testing
         TreeNode root = new TreeNode(45);
