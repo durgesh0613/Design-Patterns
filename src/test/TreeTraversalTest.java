@@ -17,7 +17,7 @@ public class TreeTraversalTest {
 
     @BeforeEach
     void setUp() {
-        root = TreeUtil.createDummyTree();
+        root = TestUtility.createDummyTree();
         treeTraversal = new TreeTraversal();
     }
 

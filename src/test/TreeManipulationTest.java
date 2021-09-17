@@ -18,7 +18,7 @@ public class TreeManipulationTest {
 
     @BeforeEach
     void setUp(){
-        root = TreeUtil.createDummyTree();
+        root = TestUtility.createDummyTree();
         newNode = new TreeNode(50);
         treeTraversal = new TreeTraversal();
         treeManipulation = new TreeManipulation();

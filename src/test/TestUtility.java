@@ -1,54 +1,33 @@
 package test;
 
-import main.controller.TreeTraversal;
-import main.controller.utility.Utility;
 import main.model.TreeNode;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
-
-import static main.controller.utility.Constants.*;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static test.TestConstants.*;
 
 public class TestUtility {
-    TreeNode root;
+    public static TreeNode createDummyTree(){
+        //Constructing Dummy Min Heap as per the Prompt for testing
+        TreeNode root = new TreeNode(45);
+        TreeNode a = new TreeNode(65);
+        TreeNode b = new TreeNode(72);
+        TreeNode c = new TreeNode(90);
+        TreeNode d = new TreeNode(81);
+        TreeNode e = new TreeNode(82);
+        TreeNode f = new TreeNode(96);
+        TreeNode g = new TreeNode(99);
+        TreeNode h = new TreeNode(95);
 
-    @BeforeEach
-    void setUp(){
-        root = TreeUtil.createDummyTree();
-    }
+        root.setLeft(a);
+        root.setRight(b);
 
-    @Test
-    void testFindHeight(){
-        assertEquals(testHeight, Utility.findHeight(root));
-    }
+        a.setLeft(c);
+        a.setRight(d);
 
-    @Test
-    void testPrintTreeForEmptyTree(){
-        //If resultTree is null
-        assertEquals(emptyMessage, Utility.printTree(null, null));
+        c.setLeft(g);
+        c.setRight(h);
 
-        //If resultTree is empty
-        assertEquals(emptyMessage, Utility.printTree(new ArrayList<Integer>(), null));
-    }
+        b.setLeft(e);
+        b.setRight(f);
+        // tree construction ends
 
-    @Test
-    void testPrintTree(){
-        //Test without filter condition
-        assertEquals(preOrderTestResult.toString(),
-                Utility.printTree(preOrderTestResult, null));
-
-        //Test with filter condition
-        assertEquals(preOrderWithOddValuesTestResult.toString(),
-                Utility.printTree(preOrderTestResult, isOdd));
-    }
-
-    @Test
-    void testFilter(){
-        //Test with odd values filter on list
-        assertEquals(preOrderWithOddValuesTestResult.toString(),
-                Utility.printTree(preOrderTestResult, isOdd));
+        return root;
     }
 }
