@@ -23,6 +23,8 @@ public class TreeTraversal {
         resultTree.clear();
     }
 
+
+    //Printing the nodes of the minHeap in LEFT -> RIGHT -> ROOT format.
     public ArrayList<Integer> postOrderHeapTraversal(TreeNode root) {
         if (root == null)
             return null;
@@ -33,6 +35,7 @@ public class TreeTraversal {
         return resultTree;
     }
 
+    //Printing the nodes of the minHeap in ROOT -> LEFT -> RIGHT format.
     public ArrayList<Integer> preOrderHeapTraversal(TreeNode root) {
         if (root == null)
             return null;

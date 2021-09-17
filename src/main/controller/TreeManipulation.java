@@ -9,6 +9,7 @@ import main.controller.utility.Utility;
 public class TreeManipulation {
 
     //Can be overloaded to support insertion of lists in the future.
+    //Gets called to insert a node in the tree.
     public TreeNode insert(TreeNode root, TreeNode newNode) {
         if (root == null)
             return newNode;
@@ -16,8 +17,8 @@ public class TreeManipulation {
         return root;
     }
 
-    //Recursive method to insert new node as per custom requirement
-    public TreeNode beginInsertion(TreeNode root, TreeNode newNode) {
+    //Recursive method to insert new node as per the prompt
+    private TreeNode beginInsertion(TreeNode root, TreeNode newNode) {
         if (newNode.getData() < root.getData()) {
             //Making the smallest value as the root
             int smallestValue = newNode.getData();
@@ -25,17 +26,18 @@ public class TreeManipulation {
             root.setData(smallestValue);
         }
 
+
         int leftHeight = Utility.findHeight(root.getLeft());
         int rightHeight = Utility.findHeight(root.getRight());
 
-        if (leftHeight <= rightHeight) { //Adding the new node to the left subHeap
-            if (leftHeight == 0)
+        if (leftHeight <= rightHeight) { //New Node will be added to the left subHeap
+            if (leftHeight == 0) // If the node has no children, simply add new node as it's child
                 root.setLeft(newNode);
             else
                 beginInsertion(root.getLeft(), newNode);
         } else { //Adding the new node to the right subHeap
             if (rightHeight == 0)
-                root.setRight(newNode);
+                root.setRight(newNode);// If the node has no children, simply add new node as it's child
             else
                 beginInsertion(root.getRight(), newNode);
         }

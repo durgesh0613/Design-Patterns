@@ -38,10 +38,4 @@ public class TreeManipulationTest {
         assertEquals(preOrderAfterInsertionTestResult, treeTraversal.preOrderHeapTraversal(root));
     }
 
-    @Test
-    void testBeginInsertion(){
-        root = treeManipulation.beginInsertion(root, newNode);
-        assertEquals(preOrderAfterInsertionTestResult, treeTraversal.preOrderHeapTraversal(root));
-    }
-
 }

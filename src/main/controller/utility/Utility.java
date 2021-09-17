@@ -7,10 +7,11 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class Utility {
-
+    //Finds the height of the binary
+    //Used while inserting a new node in the minHeap.
     public static int findHeight(TreeNode root) {
         if (root == null)
-            return 0;
+            return 0; // If the root is null, height is zero.
         int leftHeight = findHeight(root.getLeft()) + 1;
         int rightHeight = findHeight(root.getRight()) + 1;
         return Math.max(leftHeight, rightHeight);
