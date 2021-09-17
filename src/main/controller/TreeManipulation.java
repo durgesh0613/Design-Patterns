@@ -1,19 +1,25 @@
-package operations;
+package main.controller;
 
-import node.Node;
-import utility.Utility;
+import main.model.TreeNode;
+import main.controller.utility.Utility;
 
-public class Insertion {
-    public Node insert(Node root, Node newNode) {
+/**
+ * TreeManipulation class currently supports insertion to satisfy min-heap nature of the tree.
+ */
+public class TreeManipulation {
+
+    //Can be overloaded to support insertion of lists in the future.
+    public TreeNode insert(TreeNode root, TreeNode newNode) {
         if (root == null)
             return newNode;
         beginInsertion(root, newNode);
         return root;
     }
 
-    public Node beginInsertion(Node root, Node newNode) {
+    //Recursive method to insert new node as per custom requirement
+    public TreeNode beginInsertion(TreeNode root, TreeNode newNode) {
         if (newNode.getData() < root.getData()) {
-            //Making Smallest Value as the root
+            //Making the smallest value as the root
             int smallestValue = newNode.getData();
             newNode.setData(root.getData());
             root.setData(smallestValue);
@@ -33,6 +39,20 @@ public class Insertion {
             else
                 beginInsertion(root.getRight(), newNode);
         }
+        return root;
+    }
+
+    public TreeNode update(TreeNode root){
+        /**
+         * To be implemented in future
+         */
+        return root;
+    }
+
+    public TreeNode delete(TreeNode root){
+        /**
+         * To be implemented in future
+         */
         return root;
     }
 }
