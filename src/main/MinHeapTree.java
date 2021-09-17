@@ -18,7 +18,7 @@ public class MinHeapTree {
         TreeTraversal traversal = new TreeTraversal();
 
         //Create a dummy tree with certain values
-        Utility.createDummyTree();
+        //Utility.createTree();
 
         //Insert 50 as a value and maintain min-heap structure
         root = treeManipulation.insert(root, new TreeNode(50));

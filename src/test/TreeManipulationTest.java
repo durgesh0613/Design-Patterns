@@ -2,7 +2,6 @@ package test;
 
 import main.controller.TreeManipulation;
 import main.controller.TreeTraversal;
-import main.controller.utility.Utility;
 import main.model.TreeNode;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -19,7 +18,7 @@ public class TreeManipulationTest {
 
     @BeforeEach
     void setUp(){
-        root = Utility.createDummyTree();
+        root = TestUtility.createDummyTree();
         newNode = new TreeNode(50);
         treeTraversal = new TreeTraversal();
         treeManipulation = new TreeManipulation();
@@ -40,7 +39,7 @@ public class TreeManipulationTest {
     }
 
     @Test
-    void beginInsertion(){
+    void testBeginInsertion(){
         root = treeManipulation.beginInsertion(root, newNode);
         assertEquals(preOrderAfterInsertionTestResult, treeTraversal.preOrderHeapTraversal(root));
     }
