@@ -7,12 +7,13 @@ import java.util.ArrayList;
 public class TreeTraversal {
     private ArrayList<Integer> resultTree;
 
-    public TreeTraversal(){
+    public TreeTraversal() {
         resultTree = new ArrayList<Integer>();
     }
 
     /**
      * Getter for resultTree
+     *
      * @return
      */
     public ArrayList<Integer> getResultTree() {
@@ -21,6 +22,7 @@ public class TreeTraversal {
 
     /**
      * Setter for resultTree
+     *
      * @param resultTree
      */
     public void setResultTree(ArrayList<Integer> resultTree) {
@@ -30,12 +32,13 @@ public class TreeTraversal {
     /**
      * clearResult() - Used to reset the resultTree ArrayList
      */
-    public void clearResult(){
+    public void clearResult() {
         resultTree.clear();
     }
 
     /**
      * It returns the list of values in post order for the tree.
+     *
      * @param root
      * @return
      */
@@ -51,6 +54,7 @@ public class TreeTraversal {
 
     /**
      * It returns the list of values in pre order for the tree.
+     *
      * @param root
      * @return
      */

@@ -10,6 +10,11 @@ import java.util.Scanner;
 
 import static main.controller.utility.Constants.isOdd;
 
+/**
+ * @author Durgesh Valecha - 027981653
+ * @author Ankit Pattanayak - 027646357
+ */
+
 //MinHeap Main Class (Driver Class)
 public class MinHeapTree {
     private static TreeNode root;
@@ -57,6 +62,9 @@ public class MinHeapTree {
                 break;
             case 9:
                 System.out.println("Exiting. Thank you!");
+                break;
+            default:
+                System.out.println("Incorrect Choice. Please try again!");
         }
     }
 }

@@ -9,7 +9,7 @@ import main.controller.utility.Utility;
 public class TreeManipulation {
 
     //Can be overloaded to support insertion of lists in the future.
-    //Gets called to insert a node in the tree.
+    //Gets called from the driver class to insert a node in the tree.
     public TreeNode insert(TreeNode root, TreeNode newNode) {
         if (root == null)
             return newNode;
@@ -25,7 +25,6 @@ public class TreeManipulation {
             newNode.setData(root.getData());
             root.setData(smallestValue);
         }
-
 
         int leftHeight = Utility.findHeight(root.getLeft());
         int rightHeight = Utility.findHeight(root.getRight());
@@ -44,14 +43,14 @@ public class TreeManipulation {
         return root;
     }
 
-    public TreeNode update(TreeNode root){
+    public TreeNode update(TreeNode root) {
         /**
          * To be implemented in future
          */
         return root;
     }
 
-    public TreeNode delete(TreeNode root){
+    public TreeNode delete(TreeNode root) {
         /**
          * To be implemented in future
          */
