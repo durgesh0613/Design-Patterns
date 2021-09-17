@@ -20,4 +20,6 @@ public class TestConstants {
 
     public static final ArrayList<Integer> preOrderAfterInsertionTestResult = new ArrayList<Integer>
             (Arrays.asList(45, 65, 90, 99, 95, 81, 50, 72, 82, 96));
+
+    public static final String emptyMessage = "No elements in the tree";
 }

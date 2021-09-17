@@ -6,21 +6,32 @@ import main.model.TreeNode;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
 import static main.controller.utility.Constants.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static test.TestConstants.*;
 
-public class UtilityTest {
+public class TestUtility {
     TreeNode root;
 
     @BeforeEach
     void setUp(){
-        root = Utility.createDummyTree();
+        root = TreeUtil.createDummyTree();
     }
 
     @Test
     void testFindHeight(){
         assertEquals(testHeight, Utility.findHeight(root));
+    }
+
+    @Test
+    void testPrintTreeForEmptyTree(){
+        //If resultTree is null
+        assertEquals(emptyMessage, Utility.printTree(null, null));
+
+        //If resultTree is empty
+        assertEquals(emptyMessage, Utility.printTree(new ArrayList<Integer>(), null));
     }
 
     @Test
@@ -40,10 +51,4 @@ public class UtilityTest {
         assertEquals(preOrderWithOddValuesTestResult.toString(),
                 Utility.printTree(preOrderTestResult, isOdd));
     }
-
-    @Test
-    void testCreateDummyTree(){
-        assertEquals(preOrderTestResult, new TreeTraversal().preOrderHeapTraversal(root));
-    }
-
 }

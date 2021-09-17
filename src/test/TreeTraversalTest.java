@@ -1,7 +1,6 @@
 package test;
 
 import main.controller.TreeTraversal;
-import main.controller.utility.Utility;
 import main.model.TreeNode;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -18,7 +17,7 @@ public class TreeTraversalTest {
 
     @BeforeEach
     void setUp() {
-        root = Utility.createDummyTree();
+        root = TreeUtil.createDummyTree();
         treeTraversal = new TreeTraversal();
     }
 
