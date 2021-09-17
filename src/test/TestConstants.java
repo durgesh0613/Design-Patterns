@@ -3,6 +3,9 @@ package test;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+/**
+ * Class used to store constants/final values for test-cases with respect to dummy tree input.
+ */
 public class TestConstants {
     public static final ArrayList<Integer> preOrderTestResult = new ArrayList<Integer>
             (Arrays.asList(45, 65, 90, 99, 95, 81, 72, 82, 96));
