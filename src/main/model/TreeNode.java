@@ -1,9 +1,14 @@
 package main.model;
 
-public class TreeNode {
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.Queue;
+
+public class TreeNode implements Queue {
     private int data;
     private TreeNode left;
     private TreeNode right;
+    private int size;
 
     public TreeNode(int data) {
         this.data = data;
