@@ -3,6 +3,7 @@ package test;
 import main.controller.TreeManipulation;
 import main.controller.TreeTraversal;
 import main.model.TreeNode;
+import main.strategy.MinHeapStrategy;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -27,7 +28,7 @@ public class TreeManipulationTest {
         root = TestUtility.createDummyTree();
         newNode = new TreeNode(50);
         treeTraversal = new TreeTraversal();
-        treeManipulation = new TreeManipulation();
+        treeManipulation = new TreeManipulation(new MinHeapStrategy());
     }
 
     @Test

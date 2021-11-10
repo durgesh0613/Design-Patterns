@@ -18,17 +18,17 @@ public class UtilityTest {
     TreeNode root;
 
     @BeforeEach
-    void setUp(){
+    void setUp() {
         root = TestUtility.createDummyTree();
     }
 
     @Test
-    void testFindHeight(){
-        assertEquals(testHeight, Utility.findHeight(root));
+    void testFindHeight() {
+        assertEquals(testHeight, TreeNode.findHeight(root));
     }
 
     @Test
-    void testPrintTreeForEmptyTree(){
+    void testPrintTreeForEmptyTree() {
         //If resultTree is null
         assertEquals(emptyMessage, Utility.printTree(null, null));
 
@@ -37,7 +37,7 @@ public class UtilityTest {
     }
 
     @Test
-    void testPrintTree(){
+    void testPrintTree() {
         //Test without filter condition
         assertEquals(preOrderTestResult.toString(),
                 Utility.printTree(preOrderTestResult, null));
@@ -48,7 +48,7 @@ public class UtilityTest {
     }
 
     @Test
-    void testFilter(){
+    void testFilter() {
         //Test with odd values filter on list
         assertEquals(preOrderWithOddValuesTestResult.toString(),
                 Utility.printTree(preOrderTestResult, isOdd));
