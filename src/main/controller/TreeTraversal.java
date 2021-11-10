@@ -43,7 +43,7 @@ public class TreeTraversal {
      * @return
      */
     public ArrayList<Integer> postOrderHeapTraversal(TreeNode root) {
-        if (root == null)
+        if (root.isNull())
             return null;
 
         postOrderHeapTraversal(root.getLeft());
@@ -59,7 +59,7 @@ public class TreeTraversal {
      * @return
      */
     public ArrayList<Integer> preOrderHeapTraversal(TreeNode root) {
-        if (root == null)
+        if (root.isNull())
             return null;
 
         resultTree.add(root.getData());
