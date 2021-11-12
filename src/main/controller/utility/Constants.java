@@ -10,4 +10,6 @@ import java.util.function.Predicate;
 public class Constants {
     //isOdd predicate/condition is used to filter a set of values satisfying odd condition
     public static final Predicate<Integer> isOdd = (n) -> n % 2 == 1;
+
+    public static final String SPACE_DELIMETER = " ";
 }

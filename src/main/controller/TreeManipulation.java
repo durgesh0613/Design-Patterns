@@ -1,25 +1,26 @@
 package main.controller;
 
 import main.model.TreeNode;
-import main.controller.utility.Utility;
-import main.strategy.Strategy;
-import sun.reflect.generics.tree.Tree;
+import main.controller.strategy.HeapStrategy;
 
 /**
  * TreeManipulation class currently supports insertion to satisfy min-heap nature of the tree.
  */
 public class TreeManipulation {
-    private Strategy strategy;
+    private HeapStrategy strategy;
 
-    public TreeManipulation(Strategy strategy) {
+    public TreeManipulation(HeapStrategy strategy) {
         this.strategy = strategy;
     }
 
     //Can be overloaded to support insertion of lists in the future.
     //Gets called from the driver class to insert a node in the tree.
-    public TreeNode insert(TreeNode root, TreeNode newNode) {
-        if (root.isNull())
+    public TreeNode insert(TreeNode newNode) {
+        TreeNode root = strategy.getRoot();
+        if (root.isNull()) {
+            strategy.setRoot(newNode);
             return newNode;
+        }
         beginInsertion(root, newNode);
         return root;
     }
@@ -32,8 +33,8 @@ public class TreeManipulation {
             root.setData(newValue);
         }
 
-        int leftHeight = TreeNode.findHeight(root.getLeft());
-        int rightHeight = TreeNode.findHeight(root.getRight());
+        int leftHeight = root.getLeft().getHeight();
+        int rightHeight = root.getRight().getHeight();
 
         if (leftHeight <= rightHeight) { //New Node will be added to the left subHeap
             if (leftHeight == 0) // If the node has no children, simply add new node as it's child
