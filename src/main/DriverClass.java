@@ -144,6 +144,11 @@ public class DriverClass {
                     }
                 }
             case 11:
+                //Oddheapdecorator with max heap
+                HeapDecorator oddHeapDecorator2 = new OddHeapDecorator(new MinHeapStrategy(rootMinHeap));
+                System.out.println(oddHeapDecorator2);
+                break;
+            case 12:
                 System.out.println("Exiting. Thank you!");
                 break;
             default:
