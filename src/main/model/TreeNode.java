@@ -1,9 +1,10 @@
 package main.model;
 
-public class TreeNode {
+public class TreeNode{
     private int data;
     private TreeNode left;
     private TreeNode right;
+    private int size;
 
     public TreeNode(int data) {
         this.data = data;
@@ -16,11 +17,11 @@ public class TreeNode {
 
     //Finds the height of the binary
     //Used while inserting a new node in the minHeap.
-    public static int findHeight(TreeNode root) {
-        if (root.isNull())
+    public int getHeight() {
+        if (this.isNull())
             return 0; // If the root is null, height is zero.
-        int leftHeight = findHeight(root.getLeft()) + 1;
-        int rightHeight = findHeight(root.getRight()) + 1;
+        int leftHeight = this.getLeft().getHeight() + 1;
+        int rightHeight = this.getRight().getHeight() + 1;
         return Math.max(leftHeight, rightHeight);
     }
 

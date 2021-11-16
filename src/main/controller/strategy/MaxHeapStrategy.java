@@ -1,0 +1,82 @@
+package main.controller.strategy;
+
+import main.controller.TreeManipulation;
+import main.controller.iterator.HeapIterator;
+import main.controller.utility.Constants;
+import main.controller.utility.Utility;
+import main.model.TreeNode;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.PriorityQueue;
+import java.util.function.Consumer;
+
+public class MaxHeapStrategy extends PriorityQueue implements HeapStrategy, Iterable {
+    TreeNode root;
+
+    @Override
+    public void forEach(Consumer action) {
+        super.forEach(action);
+    }
+
+    public MaxHeapStrategy(TreeNode root) {
+        this.root = root;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder result = new StringBuilder();
+        for(Object node : this){
+            result.append((TreeNode)node).append(Constants.SPACE_DELIMETER);
+        }
+        return result.toString();
+    }
+
+    @Override
+    public boolean add(Object newValue) {
+        try{
+            Integer newVal = (Integer)newValue;
+            new TreeManipulation(this).insert(new TreeNode(newVal));
+        }catch(Exception e){
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public Object[] toArray() {
+        ArrayList result = new ArrayList<TreeNode>();
+        for(Object node : this){
+           result.add(node);
+        }
+        return result.toArray();
+    }
+
+    /**
+     * Returns an iterator over the elements in this heap. The iterator
+     * returns the elements in in-order traversal
+     *
+     * @return an iterator over the elements in this heap
+     */
+    public Iterator iterator() {
+        return new HeapIterator(this);
+    }
+
+    @Override
+    public boolean rootReplaceable(TreeNode root, TreeNode newNode) {
+        if (newNode.getData() > root.getData())
+            return true;
+        return false;
+    }
+
+    @Override
+    public TreeNode getRoot() {
+        return root;
+    }
+
+    @Override
+    public void setRoot(TreeNode newNode) {
+        this.root = newNode;
+    }
+}

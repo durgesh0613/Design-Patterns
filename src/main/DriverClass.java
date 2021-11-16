@@ -1,14 +1,18 @@
 package main;
 
+import main.controller.decorator.HeapDecorator;
+import main.controller.decorator.OddHeapDecorator;
+import main.controller.strategy.HeapStrategy;
 import main.controller.utility.Utility;
 import main.model.TreeNode;
 import main.controller.TreeManipulation;
 import main.controller.TreeTraversal;
 import main.model.TreeNodeNull;
-import main.strategy.MaxHeapStrategy;
-import main.strategy.MinHeapStrategy;
+import main.controller.strategy.MaxHeapStrategy;
+import main.controller.strategy.MinHeapStrategy;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Scanner;
 
 import static main.controller.utility.Constants.isOdd;
@@ -19,7 +23,7 @@ import static main.controller.utility.Constants.isOdd;
  */
 
 //MinHeap Main Class (Driver Class)
-public class MinHeapTree {
+public class DriverClass {
     private static TreeNode rootMinHeap = new TreeNodeNull();
     private static TreeNode rootMaxHeap = new TreeNodeNull();
     private static ArrayList<Integer> resultTree;
@@ -39,7 +43,11 @@ public class MinHeapTree {
             System.out.println("5 for Printing MAXHEAP in Post-Order format");
             System.out.println("6 for Printing Odd elements of a MAXHEAP in Pre-Order format");
 
-            System.out.println("9 for Exiting");
+            System.out.println("7 for printing MAXHEAP using External Iterator");
+            System.out.println("8 for printing MAXHEAP using Internal Iterator");
+            System.out.println("9 for printing MAXHEAP using OddHeapDecorator");
+
+            System.out.println("10 for Exiting");
             choice = sc.nextInt();
             doOperations(choice);
         } while (choice != 9);
@@ -53,8 +61,8 @@ public class MinHeapTree {
                 Scanner sc = new Scanner(System.in);
                 System.out.println("\nEnter node value to be entered in the MINHEAP");
                 int nodeValue = sc.nextInt();
-                treeManipulation = new TreeManipulation(new MinHeapStrategy());
-                rootMinHeap = treeManipulation.insert(rootMinHeap, new TreeNode(nodeValue));
+                treeManipulation = new TreeManipulation(new MinHeapStrategy(rootMinHeap));
+                rootMinHeap = treeManipulation.insert(new TreeNode(nodeValue));
                 System.out.println(nodeValue + " is Inserted in the MINHEAP");
                 break;
 
@@ -81,8 +89,8 @@ public class MinHeapTree {
                 sc = new Scanner(System.in);
                 System.out.println("\nEnter node value to be entered in the MAXHEAP");
                 nodeValue = sc.nextInt();
-                treeManipulation = new TreeManipulation(new MaxHeapStrategy());
-                rootMaxHeap = treeManipulation.insert(rootMaxHeap, new TreeNode(nodeValue));
+                treeManipulation = new TreeManipulation(new MaxHeapStrategy(rootMaxHeap));
+                rootMaxHeap = treeManipulation.insert(new TreeNode(nodeValue));
                 System.out.println(nodeValue + " is Inserted in the MAXHEAP");
                 break;
 
@@ -102,7 +110,29 @@ public class MinHeapTree {
                 resultTree = traversal.preOrderHeapTraversal(rootMaxHeap);
                 Utility.printTree(resultTree, isOdd);
                 break;
+
+            case 7:
+                //Using external iterator to print in in-order fashion
+                System.out.println("\nPrinting values in in-order traversal.");
+                Iterator maxHeapItr = new MaxHeapStrategy(rootMaxHeap).iterator();
+                while (maxHeapItr.hasNext()){
+                    TreeNode node = (TreeNode) maxHeapItr.next();
+                    if(!node.isNull()){
+                        System.out.println(node.getData());
+                    }
+                }
+            case 8:
+                //Using internal iterator to print in in-order fashion
+                for(Object node : new MaxHeapStrategy(rootMaxHeap)){
+                    System.out.println(((TreeNode)node).getData());
+                }
+                break;
             case 9:
+                //Oddheapdecorator with max heap
+                HeapDecorator oddHeapDecorator = new OddHeapDecorator(new MaxHeapStrategy(rootMaxHeap));
+                System.out.println(oddHeapDecorator);
+                break;
+            case 10:
                 System.out.println("Exiting. Thank you!");
                 break;
             default:
