@@ -7,40 +7,37 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static test.TestConstants.postOrderTestResult;
-import static test.TestConstants.preOrderTestResult;
+import static test.TestConstantsMinHeap.postOrderTestResult;
+import static test.TestConstantsMinHeap.preOrderTestResult;
 
 /**
- * Test class for TreeTraversal and its methods.
+ * Test class for TreeTraversal : MIN HEAP
  */
-public class TreeTraversalTest {
+public class TreeTraversalMinHeapTest {
 
     private TreeNode root;
     private TreeTraversal treeTraversal;
 
     @BeforeEach
     void setUp() {
-        root = TestUtility.createDummyTree();
+        root = TestUtility.createDummyMinHeap();
         treeTraversal = new TreeTraversal();
     }
 
     @Test
-    void testPostOrderHeapTraversal(){
+    void testPostOrderHeapTraversal() {
         assertEquals(postOrderTestResult, treeTraversal.postOrderHeapTraversal(root));
     }
 
     @Test
-    void testPreOrderHeapTraversal(){
+    void testPreOrderHeapTraversal() {
         assertEquals(preOrderTestResult, treeTraversal.preOrderHeapTraversal(root));
     }
 
     @Test
-    void testClearResult(){
+    void testClearResult() {
         treeTraversal.preOrderHeapTraversal(root);      //Adding values to resultTree list
         treeTraversal.clearResult();
         assertTrue(treeTraversal.getResultTree().isEmpty());
     }
-
-
-
 }

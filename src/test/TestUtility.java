@@ -7,10 +7,11 @@ import main.model.TreeNode;
  */
 public class TestUtility {
     /**
-     * Method to create a Tree with dummy values for test-cases.
+     * Method to create a min heap with dummy values for test-cases.
+     *
      * @return
      */
-    public static TreeNode createDummyTree(){
+    public static TreeNode createDummyMinHeap() {
         //Constructing Dummy Min Heap as per the Prompt for testing
         TreeNode root = new TreeNode(45);
         TreeNode a = new TreeNode(65);
@@ -34,6 +35,41 @@ public class TestUtility {
         b.setLeft(e);
         b.setRight(f);
         // tree construction ends
+
+        return root;
+    }
+
+    /**
+     * Method to create a max heap with dummy values for test-cases.
+     *
+     * @return
+     */
+    public static TreeNode createDummyMaxHeap() {
+        //Constructing Dummy Min Heap as per the Prompt for testing
+        TreeNode root = new TreeNode(90);
+        TreeNode a = new TreeNode(89);
+        TreeNode b = new TreeNode(70);
+        TreeNode c = new TreeNode(36);
+        TreeNode d = new TreeNode(75);
+        TreeNode e = new TreeNode(63);
+        TreeNode f = new TreeNode(65);
+        TreeNode g = new TreeNode(21);
+        TreeNode h = new TreeNode(18);
+        TreeNode i = new TreeNode(15);
+
+        root.setLeft(a);
+        root.setRight(b);
+
+        a.setLeft(c);
+        a.setRight(d);
+
+        c.setLeft(g);
+        c.setRight(h);
+
+        d.setLeft(i);
+
+        b.setLeft(e);
+        b.setRight(f);
 
         return root;
     }

@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 import static main.controller.utility.Constants.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static test.TestConstants.*;
+import static test.TestConstantsMinHeap.*;
 
 /**
  * Test class for utility methods used in the project.
@@ -19,7 +19,7 @@ public class UtilityTest {
 
     @BeforeEach
     void setUp() {
-        root = TestUtility.createDummyTree();
+        root = TestUtility.createDummyMinHeap();
     }
 
     @Test
