@@ -2,12 +2,15 @@ package main.controller;
 
 import main.model.TreeNode;
 import main.controller.strategy.HeapStrategy;
+import main.model.TreeNodeNull;
+import sun.reflect.generics.tree.Tree;
 
 /**
  * TreeManipulation class currently supports insertion to satisfy min-heap nature of the tree.
  */
 public class TreeManipulation {
     private HeapStrategy strategy;
+    private TreeNode root = new TreeNodeNull();
 
     public TreeManipulation(HeapStrategy strategy) {
         this.strategy = strategy;
