@@ -14,11 +14,6 @@ import java.util.function.Consumer;
 public class MaxHeapStrategy extends PriorityQueue implements HeapStrategy, Iterable {
     TreeNode root;
 
-    @Override
-    public void forEach(Consumer action) {
-        super.forEach(action);
-    }
-
     public MaxHeapStrategy(TreeNode root) {
         this.root = root;
     }
@@ -27,7 +22,7 @@ public class MaxHeapStrategy extends PriorityQueue implements HeapStrategy, Iter
     public String toString() {
         StringBuilder result = new StringBuilder();
         for(Object node : this){
-            result.append((TreeNode)node).append(Constants.SPACE_DELIMETER);
+            result.append((TreeNode)node).append(" ");
         }
         return result.toString();
     }
