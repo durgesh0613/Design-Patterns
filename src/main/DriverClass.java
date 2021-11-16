@@ -2,7 +2,7 @@ package main;
 
 import main.controller.decorator.HeapDecorator;
 import main.controller.decorator.OddHeapDecorator;
-import main.controller.strategy.HeapStrategy;
+import main.controller.iterator.OddFilter;
 import main.controller.utility.Utility;
 import main.model.TreeNode;
 import main.controller.TreeManipulation;
@@ -46,8 +46,8 @@ public class DriverClass {
             System.out.println("7 for printing MAXHEAP using External Iterator");
             System.out.println("8 for printing MAXHEAP using Internal Iterator");
             System.out.println("9 for printing MAXHEAP using OddHeapDecorator");
-
-            System.out.println("10 for Exiting");
+            System.out.println("10 for printing MAXHEAP using OddFilter");
+            System.out.println("11 for Exiting");
             choice = sc.nextInt();
             doOperations(choice);
         } while (choice != 9);
@@ -115,16 +115,16 @@ public class DriverClass {
                 //Using external iterator to print in in-order fashion
                 System.out.println("\nPrinting values in in-order traversal.");
                 Iterator maxHeapItr = new MaxHeapStrategy(rootMaxHeap).iterator();
-                while (maxHeapItr.hasNext()){
+                while (maxHeapItr.hasNext()) {
                     TreeNode node = (TreeNode) maxHeapItr.next();
-                    if(!node.isNull()){
+                    if (!node.isNull()) {
                         System.out.println(node.getData());
                     }
                 }
             case 8:
                 //Using internal iterator to print in in-order fashion
-                for(Object node : new MaxHeapStrategy(rootMaxHeap)){
-                    System.out.println(((TreeNode)node).getData());
+                for (Object node : new MaxHeapStrategy(rootMaxHeap)) {
+                    System.out.println(((TreeNode) node).getData());
                 }
                 break;
             case 9:
@@ -133,6 +133,17 @@ public class DriverClass {
                 System.out.println(oddHeapDecorator);
                 break;
             case 10:
+                //Using external iterator to print the odd elements in in-order fashion
+                System.out.println("\nPrinting values in in-order traversal.");
+                Iterator itr = new MaxHeapStrategy(rootMaxHeap).iterator();
+                Iterator oddFilterIterator = new OddFilter(itr);
+                while (oddFilterIterator.hasNext()) {
+                    TreeNode node = (TreeNode) oddFilterIterator.next();
+                    if (!node.isNull()) {
+                        System.out.println(node.getData());
+                    }
+                }
+            case 11:
                 System.out.println("Exiting. Thank you!");
                 break;
             default:

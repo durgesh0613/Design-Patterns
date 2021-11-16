@@ -3,7 +3,6 @@ package test;
 import main.controller.TreeManipulation;
 import main.controller.TreeTraversal;
 import main.model.TreeNode;
-import main.strategy.MinHeapStrategy;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -28,20 +27,20 @@ public class TreeManipulationTest {
         root = TestUtility.createDummyTree();
         newNode = new TreeNode(50);
         treeTraversal = new TreeTraversal();
-        treeManipulation = new TreeManipulation(new MinHeapStrategy());
+      //  treeManipulation = new TreeManipulation(new MinHeapStrategy());
     }
 
     @Test
     void testInsertForEmptyTree(){
         //If tree is empty
-        root = treeManipulation.insert(null, newNode);
+       // root = treeManipulation.insert(null, newNode);
         assertEquals(emptyTreeInsertionTestResult, treeTraversal.preOrderHeapTraversal(root));
     }
 
     @Test
     void testInsert(){
         //If tree is non-empty
-        root = treeManipulation.insert(root, newNode);
+      //  root = treeManipulation.insert(root, newNode);
         assertEquals(preOrderAfterInsertionTestResult, treeTraversal.preOrderHeapTraversal(root));
     }
 

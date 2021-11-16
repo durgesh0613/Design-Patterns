@@ -63,6 +63,10 @@ public class MaxHeapStrategy extends PriorityQueue implements HeapStrategy, Iter
         return new HeapIterator(this);
     }
 
+    public Iterator oddIterator() {
+        return new HeapIterator(this);
+    }
+
     @Override
     public boolean rootReplaceable(TreeNode root, TreeNode newNode) {
         if (newNode.getData() > root.getData())
