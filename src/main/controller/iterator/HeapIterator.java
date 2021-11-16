@@ -7,6 +7,9 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.Iterator;
 
+/**
+ * External iterator to iterate min or max heap.
+ */
 public class HeapIterator implements Iterator {
 
     Deque<TreeNode> stack;
@@ -17,11 +20,19 @@ public class HeapIterator implements Iterator {
         currentNode = heapStrategy.getRoot();
     }
 
+    /**
+     * Checks if next element is present.
+     * @return
+     */
     @Override
     public boolean hasNext() {
         return !stack.isEmpty() || !currentNode.isNull();
     }
 
+    /**
+     * Returns the next node.
+     * @return
+     */
     @Override
     public TreeNode next() {
         TreeNode result = null;
